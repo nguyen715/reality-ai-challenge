@@ -5,7 +5,7 @@ function App() {
   const [data, setData] = useState(); // not meant to be changed, only here if we want to reset the list
   const [displayedData, setDisplayedData] = useState(); // the displayed rows; changes based on sorting and filters
   const [selectedColumn, setSelectedColumn] = useState('NAME'); // which column is selected for sorting and highlighting
-  
+
   useEffect(() => {
      fetch('https://data.nasa.gov/resource/gh4g-9sfh.json')
       .then(res => res.json())
@@ -49,7 +49,7 @@ function App() {
     }
 
     else if(!!year1 && !!year2) {
-      tempData = tempData.filter(entry => entry.year >= year1 && entry.year <= year2);
+      tempData = tempData.filter(entry => parseInt(entry.year) >= parseInt(year1) && parseInt(entry.year) <= parseInt(year2));
     }
 
     setDisplayedData(tempData);
