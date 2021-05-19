@@ -125,7 +125,7 @@ function App() {
         !displayedData ? <span>Loading...</span>
           :
           <>
-            <form className="filter-form" onSubmit={handleFilterFormSubmit} action="">
+            <form onSubmit={handleFilterFormSubmit} action="">
               <label>Name contains: 
                 <input name="name" />
               </label>
