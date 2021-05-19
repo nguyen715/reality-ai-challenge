@@ -6,6 +6,7 @@ function App() {
   const [displayedData, setDisplayedData] = useState(); // the displayed rows; changes based on sorting and filters
   const [selectedColumn, setSelectedColumn] = useState('NAME'); // which column is selected for sorting and highlighting
 
+  // run this once when App component first mounts
   useEffect(() => {
      fetch('https://data.nasa.gov/resource/gh4g-9sfh.json')
       .then(res => res.json())
@@ -43,12 +44,12 @@ function App() {
       return;
     }
 
-    else if(year2 < year1) {
+    if(parseInt(year2) < parseInt(year1)) {
       alert("Year 2 must be greater than or equal to Year 1");
       return;
     }
 
-    else if(!!year1 && !!year2) {
+    if(!!year1 && !!year2) {
       tempData = tempData.filter(entry => parseInt(entry.year) >= parseInt(year1) && parseInt(entry.year) <= parseInt(year2));
     }
 
